@@ -32,6 +32,19 @@ const login = () => {
 							<IoLogoTwitter size={25} />
 						</div>
 					</div>
+
+					<p className='change-form'>
+						 - OU -
+					</p>
+
+					<form className='login-form'>
+						<input type="email" name="email" id="email" className='form-input' placeholder='Digite seu Email' autoComplete='off' required />
+						<input type="password" name="senha" id="senha" className='form-input' placeholder='Digite sua senha' autoComplete='off' required />
+					</form>
+					<p className='forgot-password'>
+						Esqueceu a senha?
+					</p>
+
 				</div>
 
 

@@ -3,9 +3,9 @@
 :root {
     --font-color: #333;
     --font-color-low-emphasis: #cccccc;
-    --color1: #11153a; 
-    --color2: #0f1336; 
-    --color3: #141631;
+    --color1: #333; 
+    --color2: #222; 
+    --color3: #242629;
     --color4: #f33e7b; 
 }
 
@@ -72,6 +72,11 @@ main {
     border-radius: 10px;
 }
 
+.change-form {
+    padding: 65px;
+    color: white;
+}
+
 .icons-container {
     margin-top: 25px;
     max-width: 500px;
@@ -100,16 +105,41 @@ main {
     color: var(--color3);
 }
 
+.login-form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-label {
+    color: white;
+    font-size: 17.5px;
+}
+
+.form-input {
+    color: var(--font-color-low-emphasis);
+    margin-bottom: 15px;
+    margin-top: 5px;
+    width: 100%;
+    outline: 0;
+    padding: 15px;
+    background: #222;
+    border-radius: 7.5px;
+}
+
+.forgot-password {
+    margin-top: 15px;
+    color: var(--font-color-low-emphasis);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-style: italic;
+    font-size: 14px;
+}
+
 @media (max-width: 750px) {
 
-    .login-container {
-        max-width: 350px;
-    }
-
-    .icons-container {
-        max-width: 350px;
-    }
-
+    .login-container, 
+    .icons-container,
+    .login-form,
     .login-actions button {
         max-width: 350px;
     }
