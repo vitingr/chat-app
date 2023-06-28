@@ -1,4 +1,5 @@
 import "@style/global.css"
+import { UserProvider } from '@utils/authContext'
 
 export const metadata = {
   title: 'Concord App',
@@ -8,11 +9,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body>
-        <main>
-        {children}
-        </main>
-      </body>
+      <UserProvider>
+        <body>
+          <main>
+            {children}
+          </main>
+        </body>
+      </UserProvider>
     </html>
   )
 }
