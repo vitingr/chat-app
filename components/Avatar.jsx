@@ -13,9 +13,14 @@ const Avatar = ({ size, user, onClick }) => {
           <Image src={user?.photoURL} alt="Avatar" width={size} height={size} className='avatar' />
         </div>
       ) : (
-        <div className='profile-letter center' style={{backgroundColor: user?.color}}>
+        <div className='profile-letter center' style={{backgroundColor: user?.color, width: size, height: size}}>
           {user?.displayName?.charAt(0)}
         </div>
+      )}
+      {user?.isOnline ? (
+        <div className='online'> </div>
+      ) : (
+        <div className='offline'> </div>
       )}
     </div>
   )

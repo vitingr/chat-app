@@ -9,13 +9,23 @@ const UserContext = createContext()
 
 export const UserProvider = ({ children }) => {
 
-  const [currentUser, setCurrentUser] = useState("alfredo")
+  const [currentUser, setCurrentUser] = useState("")
   const [isLoading, setIsLoading] = useState(true)
 
-  const clear = () => {
-    setCurrentUser(null)
-    setIsLoading(false)
-  }
+  const clear = async () => {
+    try {
+      if (currentUser) {
+        await updateDoc(doc(db, "users", currentUser?.uid), {
+          isOnline: false,
+        });
+      }
+      setCurrentUser(null);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error)
+      console.error(error);
+    }
+  };
 
   // vai mudar se está logado ou não
   const authStateChanged = async (user) => {
@@ -25,6 +35,13 @@ export const UserProvider = ({ children }) => {
       return
     }
 
+    const userDocExist = await getDoc(doc(db, "users", user.uid));
+
+    if (userDocExist.exists()) {
+      await updateDoc(doc(db, "users", user.uid), {
+        isOnline: true,
+      });
+    }
 
     // Provavelmente o doc({banco de dados}, {collection}, {parametro})
     const userDoc = await getDoc(doc(db, "users", user.uid), {})

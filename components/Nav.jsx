@@ -3,6 +3,7 @@
 // Imports React
 import React from 'react'
 import { useState } from 'react'
+import Image from 'next/image'
 
 // Imports Icons
 import { IoIosAdd } from 'react-icons/io'
@@ -11,6 +12,7 @@ import { IoLogOutOutline } from 'react-icons/io5'
 // Imports Components
 import Avatar from './Avatar'
 import ColorContainer from './ColorContainer'
+import UsersPopup from './popup/UsersPopup'
 
 // Imports Firebase
 import { db, auth } from '@database/firebase'
@@ -28,6 +30,7 @@ const Nav = () => {
 
   const { signOut, currentUser, setCurrentUser } = useAuth()
   const [editProfile, setEditProfile] = useState(false)
+  const [usersPopup, setUsersPopup] = useState(false)
 
   const authUser = auth.currentUser
 
@@ -90,7 +93,7 @@ const Nav = () => {
               <Avatar user={currentUser} size={60} />
             </div>
             <div className='color-menu'>
-              <ColorContainer setEditProfile={setEditProfile} user={currentUser} handleClick={handleUpdateProfile} />
+              <ColorContainer setEditProfile={setEditProfile} user={currentUser} handleClick={handleUpdateProfile} handleUpdateProfile={handleUpdateProfile} />
             </div>
           </div>
         ) : (
@@ -99,7 +102,7 @@ const Nav = () => {
           </div>
         )}
         <div className='actions-container'>
-          <div className='new center'>
+          <div className='new center' onClick={() => setUsersPopup(!usersPopup)}>
             <IoIosAdd size={30} />
           </div>
           <div className='sign-out-icon center'>
@@ -107,6 +110,7 @@ const Nav = () => {
               <IoLogOutOutline size={30} />
             </button>
           </div>
+          {usersPopup && <UsersPopup ShowPopup={setUsersPopup} title={"Find Users"} />}
         </div>
       </nav>
     </div>

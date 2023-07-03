@@ -25,14 +25,16 @@ export default function Home() {
     }
   }, [currentUser, isLoading])
 
+  console.log(currentUser)
+
   return !currentUser ? (
     <Loader />
   ) : (
     <div className="bg no-padding">
       <div className="bg-main">
         <Nav />
-        <div>
-          <div>SIDEBAR</div>
+        <div className="page-chat">
+          <Sidebar />
           <Chat />
         </div>
       </div>
