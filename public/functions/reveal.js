@@ -1,14 +1,3 @@
-/*! @license ScrollReveal v4.0.9
-
-	Copyright 2021 Fisssion LLC.
-
-	Licensed under the GNU General Public License 3.0 for
-	compatible open source projects and non-commercial use.
-
-	For commercial sites, themes, projects, and applications,
-	keep your source code private/proprietary by purchasing
-	a commercial license from https://scrollrevealjs.org/
-*/
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -1143,11 +1132,6 @@
 				if (existingId) {
 					deepAssign(element, this$1.store.elements[existingId]);
 
-					/**
-					 * In order to prevent previously generated styles
-					 * from throwing off the new styles, the style tag
-					 * has to be reverted to its pre-reveal state.
-					 */
 					applyStyle(element.node, element.styles.inline.computed);
 				} else {
 					element.id = nextUniqueId();
@@ -1203,11 +1187,6 @@
 				return elementBuffer
 			}, []);
 
-			/**
-			 * Modifying the DOM via setAttribute needs to be handled
-			 * separately from reading computed styles in the map above
-			 * for the browser to batch DOM changes (limiting reflows)
-			 */
 			each(elements, function (element) {
 				this$1.store.elements[element.id] = element;
 				element.node.setAttribute('data-sr-id', element.id);
@@ -1216,10 +1195,6 @@
 			return logger.call(this, 'Reveal failed.', e.message)
 		}
 
-		/**
-		 * Now that element set-up is complete...
-		 * Let’s commit any container and sequence data we have to the store.
-		 */
 		each(containerBuffer, function (container) {
 			this$1.store.containers[container.id] = {
 				id: container.id,
@@ -1230,17 +1205,9 @@
 			this.store.sequences[sequence$$1.id] = sequence$$1;
 		}
 
-		/**
-		 * If reveal wasn't invoked by sync, we want to
-		 * make sure to add this call to the history.
-		 */
 		if (syncing !== true) {
 			this.store.history.push({ target: target, options: options });
 
-			/**
-			 * Push initialization to the event queue, giving
-			 * multiple reveal calls time to be interpreted.
-			 */
 			if (this.initTimeout) {
 				window.clearTimeout(this.initTimeout);
 			}
@@ -1263,10 +1230,6 @@
 		return id
 	}
 
-	/**
-	 * Re-runs the reveal method for each record stored in history,
-	 * for capturing new content asynchronously loaded into the DOM.
-	 */
 	function sync() {
 		var this$1 = this;
 
@@ -1280,29 +1243,6 @@
 	var polyfill = function (x) { return (x > 0) - (x < 0) || +x; };
 	var mathSign = Math.sign || polyfill;
 
-	/*! @license miniraf v1.0.1
-
-		Copyright 2018 Fisssion LLC.
-
-		Permission is hereby granted, free of charge, to any person obtaining a copy
-		of this software and associated documentation files (the "Software"), to deal
-		in the Software without restriction, including without limitation the rights
-		to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-		copies of the Software, and to permit persons to whom the Software is
-		furnished to do so, subject to the following conditions:
-
-		The above copyright notice and this permission notice shall be included in all
-		copies or substantial portions of the Software.
-
-		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-		AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-		LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-		SOFTWARE.
-
-	*/
 	var polyfill$1 = (function () {
 		var clock = Date.now();
 

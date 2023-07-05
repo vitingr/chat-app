@@ -431,17 +431,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 65px;
+    margin-bottom: 35px;
 }
 
 .top-popup-wrapper h1 {
     width: 100%;
     font-size: 22.5px;
     text-align: center;
-}
-
-.content-popup-wrapper {
-    margin-top: 50px;
 }
 
 .users-popup-container {
@@ -472,6 +468,71 @@ main {
 .right-add-friend p {
     font-weight: 300;
     font-size: 13px;
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-input {
+    width: 100%;
+}
+
+.flex-search {
+    display: flex;
+    gap: 10px;
+}
+
+.popup-input {
+    color: white;
+    width: 100%;
+    padding-bottom: 5px;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.search-container {
+    padding: 25px;
+}
+
+.searched-friend {
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.3s;
+    padding: 40px 0px 35px 0px;
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* CHAT */
+
+.chat-container {
+    padding: 35px;
+    color: white;
+}
+
+.search-chat {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-chat-input {
+    outline: 0;
+    background: var(--color2);
+    padding: 12.5px;
+    border-radius: 10px;
+    width: 100%;
+    color: var(--font-color-low-emphasis);
+}
+
+.chat-option-item {
+    list-style: none;
 }
 
 /* ANIMAÇÕES */

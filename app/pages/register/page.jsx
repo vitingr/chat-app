@@ -140,7 +140,7 @@ const register = () => {
 			<div className='bg-container'>
 
 				<div className='login-actions'>
-					<Image src="/images/assets/undraw_informed_decision_p2lh.svg" alt="Image" width={500} height={350} className='login-image' />
+					<Image src="/assets/images/undraw_informed_decision_p2lh.svg" alt="Image" width={500} height={350} className='login-image' />
 					<h1 className='title'>
 						Crie a sua Conta
 					</h1>

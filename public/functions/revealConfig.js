@@ -6,3 +6,4 @@ ScrollReveal({
 })
  
 ScrollReveal().reveal('.color-menu', { delay: 125, origin: 'left', interval: 100 });
+ScrollReveal().reveal('.navbar', { delay: 725, origin: 'left', interval: 100 });

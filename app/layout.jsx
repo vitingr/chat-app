@@ -1,3 +1,5 @@
+"use client"
+
 import "@style/global.css"
 import { UserProvider } from '@utils/authContext'
 import { ChatContextProvider } from "@utils/chatContext"
@@ -8,6 +10,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="pt-br">
       <UserProvider>
@@ -16,6 +19,8 @@ export default function RootLayout({ children }) {
             <main>
               {children}
             </main>
+            <script src="/functions/reveal.js"></script>
+            <script src="/functions/revealConfig.js"></script>
           </body>
         </ChatContextProvider>
       </UserProvider>

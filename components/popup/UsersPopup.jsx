@@ -6,6 +6,7 @@ import React from 'react'
 // Imports Components
 import PopUpWrapper from './PopUpWrapper'
 import Avatar from '@components/Avatar'
+import Search from '@components/Search'
 
 // Imports Firebase
 import { useAuth } from '@utils/authContext'
@@ -83,6 +84,9 @@ const UsersPopup = ({ ShowPopup, title }) => {
 
   return (
     <PopUpWrapper ShowPopup={ShowPopup} title={title}>
+      <div>
+      <Search />
+      </div>
       <div className='users-popup-container'>
         {users && Object.values(users).map((user) => (
           <div className='add-friend-container' onClick={() => handleSelect(user)}>

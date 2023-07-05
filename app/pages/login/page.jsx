@@ -120,7 +120,7 @@ const login = () => {
 			<div className='bg-container'>
 
 				<div className='login-actions'>
-					<Image src="/images/assets/undraw_login_re_4vu2.svg" alt='Imagem' width={500} height={350} className='login-image' />
+					<Image src="/assets/images/undraw_login_re_4vu2.svg" alt='Imagem' width={500} height={350} className='login-image' />
 					<h1 className='title'>
 						Faça Login na sua Conta
 					</h1>

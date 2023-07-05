@@ -15,6 +15,9 @@ export const ChatContextProvider = ({ children }) => {
 	const [users, setUsers] = useState(false)
 	const { currentUser } = useAuth()
 
+	const [chats, setChats] = useState([])
+	const [selectedChat, setSelectedChat] = useState(null)
+
 	const INITIAL_STATE = {
 		chatId: "",
 		user: null
@@ -37,7 +40,7 @@ export const ChatContextProvider = ({ children }) => {
 
 	return (
 		<chatContext.Provider value={{
-			users, setUsers, date: state, dispatch
+			users, setUsers, date: state, dispatch, chats, setChats, selectedChat, setSelectedChat
 		}}>
 			{children}
 		</chatContext.Provider>
