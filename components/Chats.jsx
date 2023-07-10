@@ -3,11 +3,17 @@
 // Imports React
 import React, { useEffect, useState } from 'react'
 
+// Imports Firebase
 import { useChatContext } from '@utils/chatContext'
 import { doc, collection, onSnapshot } from 'firebase/firestore'
 import { db } from '@database/firebase'
-import { IoSearchSharp } from 'react-icons/io5'
 import { useAuth } from '@utils/authContext'
+
+// Imports Icons
+import { IoSearchSharp } from 'react-icons/io5'
+
+// Imports Components
+import Avatar from './Avatar'
 
 const Chats = () => {
 
@@ -30,7 +36,7 @@ const Chats = () => {
 
 	useEffect(() => {
 		const getChats = async () => {
-			const unsub = onSnapshot(doc(db, "usersChats", currentUser.uid), (doc) => {
+			const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
 				if (doc.exists()) {
 					const data = doc.data()
 					setChats(data)
@@ -61,8 +67,26 @@ const Chats = () => {
 					const user = users[chat[1].userInfo.uid]
 					return (
 						<li className='chat-option-item'>
-							<div className='chat'>
-
+							<div className='chat-option'>
+								<div className='avatar-chat-option'>
+									<Avatar size={47.5} user={user} />
+								</div>
+								<div className='info-chat-option'>
+									<h3>
+										{user.displayName}
+									</h3>
+									<p>
+										{chat[1]?.lastMessage?.text || (chat[1]?.lastMessage?.img && "imagem") || "Envie uma mensagem"}
+									</p>
+								</div>
+								<div className='others-chat-option center'>
+									<p className='date-chat'>
+										date
+									</p>
+									<div className='new-messages-chat center'>
+										5
+									</div>
+								</div>
 							</div>
 						</li>
 					)

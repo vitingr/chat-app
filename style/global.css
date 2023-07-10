@@ -531,8 +531,52 @@ main {
     color: var(--font-color-low-emphasis);
 }
 
+.chat-options {
+    margin-top: 50px;
+}
+
 .chat-option-item {
     list-style: none;
+}
+
+.chat-option {
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    gap: 10px;
+}
+
+.info-chat-option {
+    width: 100%;
+}
+
+.info-chat-option h3 {
+    font-size: 14px;
+}
+
+.info-chat-option p {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.others-chat-option {
+    gap: 2.5px;
+}
+
+.others-chat-option p {
+    font-size: 11.5px;
+    font-weight: 300;
+    color: var(--font-color-low-emphasis);
+}
+
+.new-messages-chat {
+    font-size: 11.5px;
+    background: var(--color4);
+    color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
 }
 
 /* ANIMAÇÕES */
